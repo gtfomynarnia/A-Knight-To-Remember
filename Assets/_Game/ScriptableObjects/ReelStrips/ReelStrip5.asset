@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed0d7f40b0c4a1048abbb6d0aabe67f3, type: 3}
+  m_Name: ReelStrip5
+  m_EditorClassIdentifier: Assembly-CSharp::AKTR.Core.ReelStripsSO
+  _symbols:
+  - {fileID: 11400000, guid: 076d0d22ef2c3bf4f91e2c5ac48933ee, type: 2}
+  - {fileID: 11400000, guid: bdfdb8f92b7cea048a7ccc85928cba4e, type: 2}
+  - {fileID: 11400000, guid: f98633d16fb2bed47b08deb2e6c6e10b, type: 2}
+  - {fileID: 11400000, guid: a6c4d256aab7c754dae2a051c0f7371e, type: 2}
+  - {fileID: 11400000, guid: e943e72f5bf31524ea9657b4cadd9a84, type: 2}
+  - {fileID: 11400000, guid: 5c51bd76c37f2d54ea21fd0c42c01980, type: 2}
+  - {fileID: 11400000, guid: d5c25ce477c6bc84cb4f34f7ef1b2a32, type: 2}
+  - {fileID: 11400000, guid: fbec8bd04368244479e3cc3dcc06c3fb, type: 2}
+  - {fileID: 11400000, guid: f880d5a62798d044f9452e57062eeac5, type: 2}
+  - {fileID: 11400000, guid: d64befb1b4bf8674da0f21c0779aeb56, type: 2}
+  - {fileID: 11400000, guid: 8a209aedfeea0a449abc119fdcaa9551, type: 2}
+  - {fileID: 11400000, guid: bdfdb8f92b7cea048a7ccc85928cba4e, type: 2}
+  - {fileID: 11400000, guid: e943e72f5bf31524ea9657b4cadd9a84, type: 2}
+  - {fileID: 11400000, guid: f98633d16fb2bed47b08deb2e6c6e10b, type: 2}
+  - {fileID: 11400000, guid: d5c25ce477c6bc84cb4f34f7ef1b2a32, type: 2}
+  - {fileID: 11400000, guid: a6c4d256aab7c754dae2a051c0f7371e, type: 2}
+  - {fileID: 11400000, guid: 5c51bd76c37f2d54ea21fd0c42c01980, type: 2}
+  - {fileID: 11400000, guid: d64befb1b4bf8674da0f21c0779aeb56, type: 2}
+  - {fileID: 11400000, guid: f880d5a62798d044f9452e57062eeac5, type: 2}
+  - {fileID: 11400000, guid: 8a209aedfeea0a449abc119fdcaa9551, type: 2}

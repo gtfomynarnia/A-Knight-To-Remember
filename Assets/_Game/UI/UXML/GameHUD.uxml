@@ -1,0 +1,127 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Game/UI/USS/GameHUD.uss?fileID=7433441132597879392&amp;guid=1bd7856776ebbff45a74c404997424b6&amp;type=3#GameHUD"/>
+    <ui:VisualElement name="root" class="root">
+        <ui:VisualElement name="status-bar" class="status-bar">
+            <ui:Label name="tier-name-label" text="UNKNOWN KNIGHT" class="status-tier"/>
+            <ui:Label name="game-title-label" text="A KNIGHT TO REMEMBER" class="status-title"/>
+            <ui:Label name="credits-label" text="CREDITS: 0" class="status-credits"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="fame-bar-container" class="fame-bar-container">
+            <ui:VisualElement name="fame-left" class="fame-left">
+                <ui:Label name="fame-tier-label" text="TIER 1 · 0 FAME" class="fame-tier-label"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="fame-progress-track" class="fame-track">
+                <ui:VisualElement name="fame-progress-fill" class="fame-fill"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="fame-right" class="fame-right">
+                <ui:Label name="fame-to-next-label" text="300 TO TIER 2" class="fame-to-next"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="backdrop" class="backdrop"/>
+        <ui:VisualElement name="sword-meter-container" class="sword-meter-container">
+            <ui:Label name="sword-left-label" text="⚔ SWORD METER" class="sword-left-label"/>
+            <ui:VisualElement name="sword-progress-track" class="sword-track">
+                <ui:VisualElement name="sword-progress-fill" class="sword-fill"/>
+            </ui:VisualElement>
+            <ui:Label name="sword-status-label" text="CHARGING" class="sword-right-label"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="feedback-panel" class="feedback-panel">
+            <ui:Label name="feedback-main-label" text="Press SPIN to play" class="feedback-main"/>
+            <ui:Label name="feedback-sub-label" text="" class="feedback-sub"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="reel-grid" class="reel-grid">
+            <ui:VisualElement name="reel-0" class="reel-column"/>
+            <ui:VisualElement name="reel-1" class="reel-column"/>
+            <ui:VisualElement name="reel-2" class="reel-column"/>
+            <ui:VisualElement name="reel-3" class="reel-column"/>
+            <ui:VisualElement name="reel-4" class="reel-column"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="reel-labels-row" class="reel-labels-row">
+            <ui:Label text="REEL 1" class="reel-label"/>
+            <ui:Label text="REEL 2" class="reel-label"/>
+            <ui:Label text="REEL 3" class="reel-label"/>
+            <ui:Label text="REEL 4" class="reel-label"/>
+            <ui:Label text="REEL 5" class="reel-label"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="control-strip" class="control-strip">
+            <ui:VisualElement name="bet-controls" class="bet-controls">
+                <ui:VisualElement name="bet-arrows" class="bet-arrows">
+                    <ui:Button name="bet-down-button" text="◀" class="bet-arrow-button"/>
+                    <ui:VisualElement class="bet-display">
+                        <ui:Label text="$" class="bet-currency-label"/>
+                        <ui:Label name="bet-value-label" text="0.50" class="bet-value-label"/>
+                        <ui:Label text="BET" class="bet-denom-label"/>
+                    </ui:VisualElement>
+                    <ui:Button name="bet-up-button" text="▶" class="bet-arrow-button"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:Button name="spin-button" text="▶" class="spin-button"/>
+            <ui:VisualElement name="right-controls" class="right-controls">
+                <ui:Label name="max-bet-label" text="MAX BET" class="right-control-label"/>
+                <ui:Label name="max-bet-value" text="5.00" class="right-control-value"/>
+                <ui:Label name="paytable-label" text="PAYTABLE" class="right-control-label"/>
+                <ui:VisualElement name="paytable-icon" class="paytable-icon"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+
+<!-- Boss Encounter Overlay -->
+<ui:VisualElement name="boss-overlay" class="boss-overlay">
+
+    <!-- Title Bar -->
+    <ui:VisualElement name="boss-title-bar" class="boss-title-bar">
+        <ui:Label name="boss-encounter-label" class="boss-encounter-label" text="⚔ BOSS ENCOUNTER"/>
+        <ui:Label name="boss-enemy-name-label" class="boss-enemy-name" text="THE GIANT"/>
+        <ui:Label name="boss-award-label" class="boss-award-label" text="Award Pool: 50 credits"/>
+    </ui:VisualElement>
+
+    <!-- Enemy Area -->
+    <ui:VisualElement name="boss-enemy-area" class="boss-enemy-area">
+        <ui:Label name="boss-phase-label" class="boss-phase-label" text="PHASE 1"/>
+        <ui:VisualElement name="boss-enemy-art" class="boss-enemy-art">
+            <ui:Label name="boss-enemy-art-label" class="boss-enemy-art-label" text="?"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+
+    <!-- Reel Results Row -->
+    <ui:VisualElement name="boss-reel-results" class="boss-reel-results">
+        <ui:VisualElement name="boss-reel-result-0" class="boss-reel-result">
+            <ui:Label class="boss-reel-number" text="REEL 1"/>
+            <ui:Label name="boss-result-type-0" class="boss-result-type" text="—"/>
+            <ui:Label name="boss-result-credits-0" class="boss-result-credits" text=""/>
+        </ui:VisualElement>
+        <ui:VisualElement name="boss-reel-result-1" class="boss-reel-result">
+            <ui:Label class="boss-reel-number" text="REEL 2"/>
+            <ui:Label name="boss-result-type-1" class="boss-result-type" text="—"/>
+            <ui:Label name="boss-result-credits-1" class="boss-result-credits" text=""/>
+        </ui:VisualElement>
+        <ui:VisualElement name="boss-reel-result-2" class="boss-reel-result">
+            <ui:Label class="boss-reel-number" text="REEL 3"/>
+            <ui:Label name="boss-result-type-2" class="boss-result-type" text="—"/>
+            <ui:Label name="boss-result-credits-2" class="boss-result-credits" text=""/>
+        </ui:VisualElement>
+        <ui:VisualElement name="boss-reel-result-3" class="boss-reel-result">
+            <ui:Label class="boss-reel-number" text="REEL 4"/>
+            <ui:Label name="boss-result-type-3" class="boss-result-type" text="—"/>
+            <ui:Label name="boss-result-credits-3" class="boss-result-credits" text=""/>
+        </ui:VisualElement>
+        <ui:VisualElement name="boss-reel-result-4" class="boss-reel-result">
+            <ui:Label class="boss-reel-number" text="REEL 5"/>
+            <ui:Label name="boss-result-type-4" class="boss-result-type" text="—"/>
+            <ui:Label name="boss-result-credits-4" class="boss-result-credits" text=""/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+
+    <!-- Running Total -->
+    <ui:VisualElement name="boss-total-area" class="boss-total-area">
+        <ui:Label name="boss-total-label" class="boss-total-label" text="TOTAL: 0 credits"/>
+    </ui:VisualElement>
+
+    <!-- Prompt -->
+    <ui:VisualElement name="boss-prompt-area" class="boss-prompt-area">
+        <ui:Label name="boss-prompt-label" class="boss-prompt-label" text="Press STOP to strike!"/>
+    </ui:VisualElement>
+
+</ui:VisualElement>
+
+</ui:UXML>

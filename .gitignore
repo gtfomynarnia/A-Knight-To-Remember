@@ -1,0 +1,29 @@
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+UIElementsSchema/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+.vsconfig
+.DS_Store
+.gitignore.txt
+Assets/_Recovery.meta
+Assets/_Recovery/0.unity
+Assets/_Recovery/0 (1).unity
+Assets/_Recovery/0.unity.meta
+Assets/_Recovery/0 (1).unity.meta

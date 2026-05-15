@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e226ab2c8057e1749a8c3eccd6cc12dc, type: 3}
+  m_Name: Symbol_Jack
+  m_EditorClassIdentifier: Assembly-CSharp::AKTR.Core.SymbolDefinitionSO
+  _threeOfAKindMultiplier: 1
+  _fourOfAKindMultiplier: 3
+  _fiveOfAKindMultiplier: 8
+  _id: 2
+  _symbolName: Jack
+  _sprite: {fileID: 21300000, guid: 5409eda3660225a4faaf5c5639729ac1, type: 3}
+  _isSword: 0
+  _isScatter: 0
+  _isGoldDragon: 0
