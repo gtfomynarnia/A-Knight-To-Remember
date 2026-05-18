@@ -5,6 +5,10 @@ namespace AKTR.Core
 {
     public class WinCalculator : MonoBehaviour
     {
+        // Win Tuneables
+        [SerializeField] private int _bigWinThreshold = 50;
+        [SerializeField] private int _megaWinThreshold = 200;
+
         // Configuration
         [SerializeField] private int _multiplier = 3;
         [SerializeField] private int _poweredUpSpins = 5;
@@ -20,6 +24,8 @@ namespace AKTR.Core
 
         public bool IsPoweredUp => _isPoweredUp;
         public int PoweredUpSpinsRemaining => _poweredUpSpinsRemaining;
+        public int BigWinThreshold => _bigWinThreshold;
+        public int MegaWinThreshold => _megaWinThreshold;
 
         // Lifecycle
         private void OnEnable()

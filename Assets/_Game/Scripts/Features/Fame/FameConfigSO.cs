@@ -10,9 +10,9 @@ namespace AKTR.Features.Fame
         [SerializeField] private int _bonusFamePerCredit = 1;
 
         [Header("Tier Thresholds")]
-        [SerializeField] private int _tier2Threshold = 100;
-        [SerializeField] private int _tier3Threshold = 250;
-        [SerializeField] private int _tier4Threshold = 500;
+        [SerializeField] private int _tier2Threshold = 500;
+        [SerializeField] private int _tier3Threshold = 2000;
+        [SerializeField] private int _tier4Threshold = 10000;
 
         [Header("Tier Names")]
         [SerializeField]

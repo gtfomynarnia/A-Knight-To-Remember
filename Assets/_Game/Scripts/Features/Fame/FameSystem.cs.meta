@@ -1,2 +1,16 @@
 fileFormatVersion: 2
 guid: 3f4d17d3c602a904fa7a30220f4f26eb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _fameConfig: {fileID: 11400000, guid: 394b520a30a094f4fb7ffab081ff717b, type: 2}
+  - _onSpinComplete: {fileID: 11400000, guid: ea3ccf4a2c9ebba4381af5240d218433, type: 2}
+  - _onCreditsAwarded: {fileID: 11400000, guid: 641f9902ae68f934394b8a1fab96cee1, type: 2}
+  - _onFameChanged: {fileID: 11400000, guid: 9f824e0fae603ee4e8d4279d116f895c, type: 2}
+  - _onGameStateChanged: {fileID: 11400000, guid: 649f8dccf2a19334da4b5d20fb0b62e0, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

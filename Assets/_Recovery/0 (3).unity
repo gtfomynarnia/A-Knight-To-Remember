@@ -845,9 +845,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AKTR.Core.ReelSystem
   _reelStrips:
-  - {fileID: 11400000, guid: a127e6aff9ea9cc49840d7e07d1ffdaf, type: 2}
-  - {fileID: 11400000, guid: 6f36c3e0b1a516e4e9c353816b02f3bf, type: 2}
-  - {fileID: 11400000, guid: 4a9ca40cff3e0904db928bdf2c0b8bd9, type: 2}
+  - {fileID: 11400000, guid: 989dfe533ea8f2d419ba75b761af5335, type: 2}
+  - {fileID: 11400000, guid: 989dfe533ea8f2d419ba75b761af5335, type: 2}
+  - {fileID: 11400000, guid: 989dfe533ea8f2d419ba75b761af5335, type: 2}
   - {fileID: 11400000, guid: 25341f2445f738940a0d906122c67f6a, type: 2}
   - {fileID: 11400000, guid: e4c6cf645368f1d4095c37e02b4e2efd, type: 2}
   _spinDuration: 2

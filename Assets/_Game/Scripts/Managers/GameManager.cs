@@ -1,7 +1,8 @@
-using UnityEngine;
+using AKTR.Core;
 using AKTR.Core.Events;
-using System.Collections;
 using AKTR.Presentation;
+using System.Collections;
+using UnityEngine;
 
 namespace AKTR.Managers
 {
@@ -9,6 +10,7 @@ namespace AKTR.Managers
     {
         // Variables
         private GameHUDController _hudController;
+        [SerializeField] private BetSystemSO _betSystem;
 
         // Events
         [SerializeField] private SwordMeterEventSO _onSwordMeterFull;
@@ -55,6 +57,9 @@ namespace AKTR.Managers
             if (_hudController != null)
                 _hudController.OnSpinAnimationComplete += OnAnimationComplete;
             Debug.Log($"GameState -> {CurrentState}");
+
+            if (_betSystem != null)
+                _betSystem.Reset();
         }
 
         // State Machine

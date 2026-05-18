@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AKTR.Features.Fame.FameConfigSO
   _famePerSpin: 5
   _bonusFamePerCredit: 1
-  _tier2Threshold: 100
-  _tier3Threshold: 250
-  _tier4Threshold: 500
+  _tier2Threshold: 500
+  _tier3Threshold: 2000
+  _tier4Threshold: 10000
   _tierNames:
   - Unknown Knight
   - Recognized Hero

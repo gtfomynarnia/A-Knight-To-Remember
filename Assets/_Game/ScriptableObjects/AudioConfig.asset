@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbb0f1b2738cba343bdd26369f6247a9, type: 3}
+  m_Name: AudioConfig
+  m_EditorClassIdentifier: Assembly-CSharp::AKTR.Managers.AudioConfigSO
+  reelSpin: {fileID: 8300000, guid: ed36b247d56f0194c93c7d04fdbe8dcf, type: 3}
+  reelStop: {fileID: 8300000, guid: e78550607b63cfa42928af5cd5e0c23d, type: 3}
+  smallWin: {fileID: 8300000, guid: b9c1a9039c02e7d40bdefaf396652f3d, type: 3}
+  bigWin: {fileID: 8300000, guid: fcce0a9c306f4b343a10b6bbd0b7fba3, type: 3}
+  megaWin: {fileID: 8300000, guid: fbb1675ed0b279148bcb5309393dff4e, type: 3}
+  noWin: {fileID: 8300000, guid: ded0c7cc27276fc4bab834fb69dca128, type: 3}
+  swordCharge: {fileID: 0}
+  swordPoweredUp: {fileID: 0}
+  tierUp: {fileID: 0}
+  bossTriggered: {fileID: 8300000, guid: f5768fe7528ab7f4a804fea9f4b818c0, type: 3}
+  bossCriticalHit: {fileID: 0}
+  bossHit: {fileID: 0}
+  bossGlancingBlow: {fileID: 0}
+  bossDefeated: {fileID: 0}
+  musicTier1: {fileID: 0}
+  musicTier2: {fileID: 0}
+  musicTier3: {fileID: 0}
+  musicTier4: {fileID: 0}
+  musicBoss: {fileID: 0}
+  raiseBet: {fileID: 8300000, guid: 94eee630c709f7041a60fef942b5a85c, type: 3}
+  lowerBet: {fileID: 8300000, guid: 802a3dc6362a93d4bbbedd27de085b1e, type: 3}

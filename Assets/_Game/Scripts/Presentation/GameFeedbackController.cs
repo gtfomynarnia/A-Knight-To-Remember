@@ -25,6 +25,8 @@ namespace AKTR.Presentation
         private string _pendingSub;
         private string _pendingStyle;
         private bool _hasPendingMessage;
+        private int _spinCount;
+        private int _pendingMessageSpinCount;
 
         // UI References
         private Label _mainLabel;
@@ -34,6 +36,7 @@ namespace AKTR.Presentation
 
         // Script References
         private AKTR.Features.SwordMeter.SwordMeter _swordMeterSystem;
+        private AKTR.Core.WinCalculator _winCalculator;
 
         // State 
         private int _swordCharge;
@@ -77,6 +80,7 @@ namespace AKTR.Presentation
             uIDocument.rootVisualElement.RegisterCallback<GeometryChangedEvent>(OnUIReady);
             _swordMeterSystem = FindAnyObjectByType<AKTR.Features.SwordMeter.SwordMeter>();
             _hudController = FindAnyObjectByType<GameHUDController>();
+            _winCalculator = FindAnyObjectByType<AKTR.Core.WinCalculator>();
         }
 
         private void OnUIReady(GeometryChangedEvent evt)
@@ -105,9 +109,14 @@ namespace AKTR.Presentation
                     break;
 
                 case GameManager.GameState.Spinning:
+                    _spinCount++;
                     _bossTriggeredThisSpin = false;
                     _inBossEncounter = false;
                     _pendingWinDetails = "";
+                    _pendingMain = "";
+                    _pendingSub = "";
+                    _pendingStyle = "";
+                    _hasPendingMessage = false;
                     _messageQueue.Clear();
                     _isShowingQueue = false;
                     if (_queueCoroutine != null) StopCoroutine(_queueCoroutine);
@@ -228,7 +237,7 @@ namespace AKTR.Presentation
 
         private void HandleReelAnimComplete()
         {
-            if (_hasPendingMessage)
+            if (_hasPendingMessage && _pendingMessageSpinCount == _spinCount)
             {
                 EnqueueMessage(_pendingMain, _pendingSub, _pendingStyle);
                 _hasPendingMessage = false;
@@ -279,37 +288,42 @@ namespace AKTR.Presentation
 
         private IEnumerator ShowWinMessageNextFrame(int credits)
         {
-            Debug.Log($"ShowWinMessage waiting for reels. IsSpinComplete: {_hudController?.IsSpinAnimationComplete}");
+            int megaThreshold = _winCalculator != null ? _winCalculator.MegaWinThreshold : 200;
+            int bigThreshold = _winCalculator != null ? _winCalculator.BigWinThreshold : 50;
 
-            // wait for all reels to stop
             while (_hudController != null && !_hudController.IsSpinAnimationComplete)
                 yield return null;
 
             yield return new WaitForSeconds(0.1f);
 
-            // show sword charge message if charge was added this spin
             if (_swordMeterSystem != null && !_swordMeterSystem.IsPoweredUp && _swordMeterSystem.CurrentCharge > 0)
             {
-                QueueMessageForAfterReels("Sword Charged!", $"{_swordMeterSystem.CurrentCharge}/{_swordMeterSystem.ChargeRequired} charge", "feedback-main--sword");
+                EnqueueMessage("Sword Charged!", $"{_swordMeterSystem.CurrentCharge}/{_swordMeterSystem.ChargeRequired} charge", "feedback-main--sword");
             }
 
             if (credits <= 0)
             {
-                QueueMessageForAfterReels("No win this spin", "", "");
+                EnqueueMessage("No win this spin", "", "");
                 yield break;
             }
 
-            if (credits >= 200)
+            if (credits >= megaThreshold)
             {
-                QueueMessageForAfterReels("MEGA WIN!", $"{credits} credits", "feedback-main--win");
+                EnqueueMessage("MEGA WIN!", $"{credits} credits", "feedback-main--win");
                 yield break;
             }
 
-            if (credits >= 50)
+            if (credits >= bigThreshold)
             {
-                QueueMessageForAfterReels("BIG WIN!", $"{credits} credits", "feedback-main--win");
+                EnqueueMessage("BIG WIN!", $"{credits} credits", "feedback-main--win");
                 yield break;
             }
+
+            EnqueueMessage(
+                $"YOU WON! {credits} credits",
+                _pendingWinDetails,
+                "feedback-main--win"
+            );
         }
 
         private void QueueMessageForAfterReels(string main, string sub, string style)
@@ -318,6 +332,7 @@ namespace AKTR.Presentation
             _pendingSub = sub;
             _pendingStyle = style;
             _hasPendingMessage = true;
+            _pendingMessageSpinCount = _spinCount;
         }
     }
 }

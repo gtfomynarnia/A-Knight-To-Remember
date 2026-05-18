@@ -9,16 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6141e3066268ba4eba946ea00d2a26b, type: 3}
-  m_Name: BetSystem
-  m_EditorClassIdentifier: Assembly-CSharp::AKTR.Core.BetSystemSO
-  _betIncrements:
-  - 0.5
-  - 1
-  - 2
-  - 5
-  - 10
-  - 25
-  - 50
-  - 100
-  _currentBetIndex: 1
+  m_Script: {fileID: 11500000, guid: 5b44538de9d248843b533cad104ac80b, type: 3}
+  m_Name: OnReelStopped
+  m_EditorClassIdentifier: Assembly-CSharp::ReelStoppedEventSO

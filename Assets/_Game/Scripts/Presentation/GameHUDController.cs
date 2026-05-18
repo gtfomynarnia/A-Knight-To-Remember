@@ -19,6 +19,8 @@ namespace AKTR.Presentation
         [SerializeField] private GameStateEventSO _onGameStateChanged;
         [SerializeField] private WinEvaluatedEventSO _onWinEvaluated;
         [SerializeField] private OnReelAnimCompleteSO _onReelAnimComplete;
+        [SerializeField] private ReelStoppedEventSO _onReelStopped;
+
         public event System.Action OnSpinAnimationComplete;
 
         // Anim Pending Data
@@ -64,6 +66,7 @@ namespace AKTR.Presentation
         private Button _betDownButton;
         private Label _betValueLabel;
 
+        private AudioManager _audioManager;
         private VisualElement[] _reelColumns = new VisualElement[5];
 
         // State
@@ -119,6 +122,7 @@ namespace AKTR.Presentation
             _swordMeterSystem = FindAnyObjectByType<AKTR.Features.SwordMeter.SwordMeter>();
             _winCalculator = FindAnyObjectByType<AKTR.Core.WinCalculator>();
             _reelSystem = FindAnyObjectByType<AKTR.Core.ReelSystem>();
+            _audioManager = FindAnyObjectByType<AudioManager>();
             BindElements(root);
             BuildReelGrid(root);
             UpdateSpinButton(GameManager.Instance.CurrentState);
@@ -190,7 +194,18 @@ namespace AKTR.Presentation
 
         private void HandleCreditsAwarded(int credits)
         {
-            if (_creditsLabel == null) return;
+            if (_creditsLabel == null) { Debug.Log("creditsLabel is null"); return; }
+
+            if (GameManager.Instance.CurrentState == GameManager.GameState.BossComplete ||
+                GameManager.Instance.CurrentState == GameManager.GameState.Paying)
+            {
+                int newTotal = _totalCredits + credits;
+                if (_creditRollupCoroutine != null) StopCoroutine(_creditRollupCoroutine);
+                _creditRollupCoroutine = StartCoroutine(RollupCredits(_totalCredits, newTotal));
+                _totalCredits = newTotal;
+                return;
+            }
+
             _pendingCredits = credits;
             _hasPendingCredits = true;
         }
@@ -213,6 +228,10 @@ namespace AKTR.Presentation
 
             if (state == GameManager.GameState.Spinning)
             {
+                _hasPendingFameUpdate = false;
+                _hasPendingCredits = false;
+                _pendingCredits = 0;
+
                 if (_winHighlightCoroutine != null)
                 {
                     StopCoroutine(_winHighlightCoroutine);
@@ -226,6 +245,7 @@ namespace AKTR.Presentation
         private void HandleWinEvaluated(WinResult result)
         {
             if (!result.HasWin) return;
+            if (result.WinLines == null || result.WinLines.Count == 0) return;
             StartCoroutine(WaitForReelsToStopThenHighlight(result));
         }
 
@@ -320,6 +340,7 @@ namespace AKTR.Presentation
             if (GameManager.Instance.CurrentState != GameManager.GameState.Idle) return;
             _betSystem.IncreaseBet();
             UpdateBetDisplay();
+            _audioManager?.PlayBetSound(true);
         }
 
         private void OnBetDownClicked()
@@ -327,6 +348,7 @@ namespace AKTR.Presentation
             if (GameManager.Instance.CurrentState != GameManager.GameState.Idle) return;
             _betSystem.DecreaseBet();
             UpdateBetDisplay();
+            _audioManager?.PlayBetSound(false);
         }
 
         private void UpdateBetDisplay()
@@ -351,8 +373,8 @@ namespace AKTR.Presentation
         private float GetTierFillPercent(int fame, int tier)
         {
             if (tier >= 4) return 1f;
-            int tierStart = tier == 1 ? 0 : tier == 2 ? 100 : 250;
-            int tierEnd = tier == 1 ? 100 : tier == 2 ? 250 : 500;
+            int tierStart = tier == 1 ? 0 : tier == 2 ? 500 : 2000;
+            int tierEnd = tier == 1 ? 500 : tier == 2 ? 2000 : 10000;
             return Mathf.Clamp01((float)(fame - tierStart) / (tierEnd - tierStart));
         }
 
@@ -575,7 +597,10 @@ namespace AKTR.Presentation
                         UpdateCell(root, reel, row, symbol);
                 }
             }
+            // Temp Debug 
+            Debug.Log($"Raising OnReelStopped for reel {reel}");
 
+            _onReelStopped?.Raise();
             _reelStopped[reel] = true;
         }
 
